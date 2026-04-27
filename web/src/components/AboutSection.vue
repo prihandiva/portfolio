@@ -13,15 +13,15 @@ import { BookOpen, Briefcase } from 'lucide-vue-next'
           <p>{{ portfolioData.profile.about }}</p>
           <div class="stats">
             <div class="stat-item">
-              <span class="stat-value">3.79</span>
+              <span class="stat-value">{{ portfolioData.education.find(e => e.type === 'education')?.gpa || '3.79' }}</span>
               <span class="stat-label">GPA</span>
             </div>
             <div class="stat-item">
-              <span class="stat-value">7+</span>
+              <span class="stat-value">{{ portfolioData.projects.length }}+</span>
               <span class="stat-label">Projects</span>
             </div>
             <div class="stat-item">
-              <span class="stat-value">2</span>
+              <span class="stat-value">{{ portfolioData.education.filter(e => e.type === 'course').length }}</span>
               <span class="stat-label">Certificates</span>
             </div>
           </div>
@@ -126,7 +126,7 @@ import { BookOpen, Briefcase } from 'lucide-vue-next'
   bottom: 0;
   left: 15px;
   width: 2px;
-  background: rgba(0, 0, 0, 0.1);
+  background: var(--timeline-line);
 }
 
 .timeline-item {

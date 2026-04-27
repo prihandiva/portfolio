@@ -1,4 +1,6 @@
-export const portfolioData = {
+import { reactive } from 'vue'
+
+export const portfolioData = reactive({
   profile: {
     name: "Fitria Ramadhani Prihandiva",
     nickname: "Prihandiva",
@@ -148,4 +150,4 @@ export const portfolioData = {
       image: "https://picsum.photos/seed/ramadhan/400/300"
     }
   ]
-};
+});

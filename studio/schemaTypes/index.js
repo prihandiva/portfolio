@@ -5,6 +5,7 @@ export const schemaTypes = [
     type: 'document',
     fields: [
       { name: 'name', title: 'Name', type: 'string' },
+      { name: 'nickname', title: 'Nickname', type: 'string' },
       { name: 'title', title: 'Job Title', type: 'string' },
       { name: 'about', title: 'About Me', type: 'text' },
       { name: 'linkedin', title: 'LinkedIn URL', type: 'url' },
