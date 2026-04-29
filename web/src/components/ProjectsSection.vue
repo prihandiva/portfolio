@@ -22,13 +22,13 @@ const getGradient = (color) => {
         <div v-for="(project, index) in portfolioData.projects" :key="project.id" class="project-card glass-panel" data-aos="fade-up" :data-aos-delay="index * 100">
           <div class="project-header">
             <div class="project-icon" :style="{ background: getGradient(project.color) }">
-              {{ project.id }}
+              {{ project.id || index + 1 }}
             </div>
             <div class="project-links">
-              <a v-if="project.link.includes('github')" :href="project.link" target="_blank" class="icon-link">
+              <a v-if="project.link && project.link.includes('github')" :href="project.link" target="_blank" class="icon-link">
                 <Github :size="20" />
               </a>
-              <a v-else :href="project.link" target="_blank" class="icon-link">
+              <a v-else-if="project.link" :href="project.link" target="_blank" class="icon-link">
                 <ExternalLink :size="20" />
               </a>
               <a v-if="project.demoLink" :href="project.demoLink" target="_blank" class="icon-link">
@@ -37,7 +37,7 @@ const getGradient = (color) => {
             </div>
           </div>
           
-          <div class="project-image">
+          <div class="project-image" v-if="project.image">
             <img :src="project.image" :alt="project.title" loading="lazy" />
           </div>
           
